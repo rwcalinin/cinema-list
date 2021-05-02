@@ -20,10 +20,8 @@ const personalMovieDB = {
    privat: false
 }; 
 
-let favGenre;
-
 function writeYourGenres() {
-   
+   let favGenre;
    for (let i = 1; i <= 3; i++) {
       favGenre = prompt(`Введите любимый жанр под номером ${i}`);
       
