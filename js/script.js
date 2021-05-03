@@ -1,80 +1,118 @@
 "use strict";
 
-let numberOfFilms;
+let a = 5,
+    b = a;
 
-function start() {
-   numberOfFilms = +prompt("Сколько фильмов Вы посмотрели за последний месяц?", "");
+b = b + 5;
 
-   while (numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)) {
-      numberOfFilms = +prompt("Сколько фильмов Вы посмотрели за последний месяц?", "");
+console.log(b);
+
+const obj = {
+   a: 5,
+   b: 1
+};
+
+
+
+function copy(mainObj) {
+   let objCopy = {};
+   let key;
+   for (key in mainObj) {
+      objCopy[key] = mainObj[key];
+   }
+
+   return objCopy;
+}
+
+const numbers = {
+   a: 2,
+   b: 5,
+   c: {
+      x: 7,
+      y: 4
    }
 }
 
-start();
+const newNumbers = copy(numbers);
 
-const personalMovieDB = {
-   count: numberOfFilms,
-   movies: {},
-   actors: {},
-   genres: [],
-   privat: false
-}; 
+newNumbers.a = 10;
 
-function writeYourGenres() {
-   let favGenre;
-   for (let i = 1; i <= 3; i++) {
-      favGenre = prompt(`Введите любимый жанр под номером ${i}`);
+console.log(numbers);
+console.log(newNumbers);
+
+// let numberOfFilms;
+
+// function start() {
+//    numberOfFilms = +prompt("Сколько фильмов Вы посмотрели за последний месяц?", "");
+
+//    while (numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)) {
+//       numberOfFilms = +prompt("Сколько фильмов Вы посмотрели за последний месяц?", "");
+//    }
+// }
+
+// start();
+
+// const personalMovieDB = {
+//    count: numberOfFilms,
+//    movies: {},
+//    actors: {},
+//    genres: [],
+//    privat: false
+// }; 
+
+// function writeYourGenres() {
+//    let favGenre;
+//    for (let i = 1; i <= 3; i++) {
+//       favGenre = prompt(`Введите любимый жанр под номером ${i}`);
       
-      if (favGenre == "" || favGenre == null || !isNaN(favGenre)) {
-         console.log("Ошибка, жанр не тот");
-         i--;
-      } else {
-         i--;
-         personalMovieDB.genres[i] = favGenre;
-         i++;
-      }
+//       if (favGenre == "" || favGenre == null || !isNaN(favGenre)) {
+//          console.log("Ошибка, жанр не тот");
+//          i--;
+//       } else {
+//          personalMovieDB.genres[i - 1] = favGenre;
+//       }
 
-   }
+//    }
 
-}
+// }
 
-writeYourGenres();
+// writeYourGenres();
 
-function rememberMyFilms() {
-   for (let i = 0; i != numberOfFilms; i++) {
-      const filmName = prompt("Название просмотренного фильма"),
-            filmRate = prompt("Какую оценку дадите?");
+// function rememberMyFilms() {
+//    for (let i = 0; i != numberOfFilms; i++) {
+//       const filmName = prompt("Название просмотренного фильма"),
+//             filmRate = prompt("Какую оценку дадите?");
    
-      if (filmName != null && filmRate != null & filmName != '' && filmRate != '' && filmName.length < 50) {
-         personalMovieDB.movies[filmName] = filmRate;
-         console.log("done");
-      } else {
-         console.log("error");
-         i--;
-      }
-   }
-}
+//       if (filmName != null && filmRate != null & filmName != '' && filmRate != '' && filmName.length < 50) {
+//          personalMovieDB.movies[filmName] = filmRate;
+//          console.log("done");
+//       } else {
+//          console.log("error");
+//          i--;
+//       }
+//    }
+// }
 
-rememberMyFilms();
+// rememberMyFilms();
 
-function detectPersonalLevel() {
-   if (personalMovieDB.count == 0) {
-      console.log("Вы не смотрели фильмов");
-   } else if (personalMovieDB.count <= 10) {
-      console.log("Вы посмотрели достаточно мало фильмов");
-   } else {
-      console.log("Да Вы киноман!");
-   }
-}
+// function detectPersonalLevel() {
+//    if (personalMovieDB.count == 0) {
+//       console.log("Вы не смотрели фильмов");
+//    } else if (personalMovieDB.count <= 10) {
+//       console.log("Вы посмотрели достаточно мало фильмов");
+//    } else {
+//       console.log("Да Вы киноман!");
+//    }
+// }
 
-detectPersonalLevel();
+// detectPersonalLevel();
 
-function showMyDB() {
-   if (personalMovieDB.privat === false) {
-      console.log(personalMovieDB);
-   } else {
-      console.log("База данных приватна.");
-   }
-}
+// function showMyDB() {
+//    if (personalMovieDB.privat === false) {
+//       console.log(personalMovieDB);
+//    } else {
+//       console.log("База данных приватна.");
+//    }
+// }
 
-showMyDB();
+// showMyDB();
