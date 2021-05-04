@@ -52,17 +52,17 @@ const personalMovieDB = {
       }
    },
    toggleVisibleMyDB: function () {
-      if (this.privat === true) {
+      if (this.privat) {
          this.privat = false;
       } else {
          this.privat = true;
       }
    },
    showMyDB: function () {
-      if (this.privat === false) {
-         console.log(personalMovieDB);
-      } else {
+      if (this.privat) {
          console.log("База данных приватна.");
+      } else {
+         console.log(personalMovieDB);
       }
    }
 };
